@@ -8,6 +8,7 @@ LABEL "Project"="Vprofile"
 LABEL "Author"="KevinO"
 RUN rm -rf /usr/local/tomcat/webapps/*
 COPY --from=BUILD_IMAGE vprofile-project/target/*.war /usr/local/tomcat/webapps/ROOT.war
+RUN chmod +x /usr/local/tomcat/bin/catalina.sh
 
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
